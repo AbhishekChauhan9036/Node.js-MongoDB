@@ -3,6 +3,7 @@ const router = express.Router();
 const intro = require('./introduction')
 const wel=require('../logger/logger.js')
 const ddmmyy=require('../util/helper.js')
+const opestr=require('../validator/formatter.js')
 const employee = require('./employee')
 const _ = require('underscore')
 
@@ -22,9 +23,15 @@ router.get('/test-me', function (req, res) {
     ddmmyy.printMonth();
     ddmmyy.getBatchInfo();
 
+/*Assignment 3 Call.............................................................................*/
+    opestr.trimMethod();
+    opestr.changetoLowerCase();
+    opestr.changeToUpperCase();
+
 
     res.send('any dummy text')
 });
+
 
 
 router.get('/test-you', function(req, res){
