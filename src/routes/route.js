@@ -1,31 +1,54 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const intro = require('./introduction')
-const employee = require('./employee')
-const _ = require('underscore')
+const intro = require("./introduction");
+const employee = require("./employee");
+const _ = require("underscore");
 
-
-    // console.log("email from introduction module", intro.myEmail)
-    // intro.myFunction('Sabiha')
-    // console.log("email from employee module", employee.myEmail)
-
-    // const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    // let result = _.first(days, 4)
-    // console.log(`Result from underscore function is ${result}`)
-
-
-    // res.send('any dummy text')
-
-router.get('/popular-webseries', function (req, res) {
+// Assignment 1.................................................................
+router.get('/movies', function (req, res) {
     const webSeries =  ["Mirjapur", "Hostel Daze", "Girls Hostel", "Kota Factory", "Mission MBBS", "Aspirants"];
     res.send(webSeries);
 });
 
 
-router.get('/test-you', function(req, res){
-    console.log("I am here")
-    res.send("very important text")
-})
+// Assignment 2.................................................................
+router.get('/movies/:indexNumber',function(req,res){
+    const webSeries =  ["Mirjapur", "Hostel Daze", "Girls Hostel", "Kota Factory", "Mission MBBS", "Aspirants"];
+        if(webSeries.length>=req.params.indexNumber){
+            res.send(webSeries[req.params.indexNumber]);
+        }
+});
 
+
+// Assignment 3.................................................................
+router.get('/movies/:indexNumber',function(req,res){
+    const webSeries =  ["Mirjapur", "Hostel Daze", "Girls Hostel", "Kota Factory", "Mission MBBS", "Aspirants"];
+        if(webSeries.length<=req.params.indexNumber){
+            res.send("Please Enter a valid index Number");
+        }
+});
+
+
+// Assignment 4.................................................................
+router.get("/films", function (req, res) {
+  const arr = ["The Shining","Incendies","Rang de Basanti","Finding Nemo"];
+  const obj = Object.assign({}, arr)
+  res.send(obj);
+});
+
+
+// Assignment 5.................................................................
+router.get('/films/:id',function(req,res){
+        let obj={
+            "id":3,
+            "name":"Rang de Basanti"
+        }
+
+        if(obj.id==req.params.id){
+            res.send(obj.name);
+        }
+
+        res.send("No movie exists with this id");
+});
 
 module.exports = router;
