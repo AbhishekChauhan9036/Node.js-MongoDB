@@ -1,24 +1,38 @@
-let players = [
+let persons = [
   {
-    name: "manish",
-    dob: "1/1/1995",
-    gender: "male",
-    city: "jalandhar",
-    sports: ["swimming"],
+    name: "PK",
+    age: 10,
+    votingStatus: false,
   },
   {
-    name: "gopal",
-    dob: "1/09/1995",
-    gender: "male",
-    city: "delhi",
-    sports: ["soccer"],
+    name: "SK",
+    age: 20,
+    votingStatus: false,
   },
   {
-    name: "lokesh",
-    dob: "1/1/1990",
-    gender: "male",
-    city: "mumbai",
-    sports: ["soccer"],
+    name: "AA",
+    age: 70,
+    votingStatus: false,
+  },
+  {
+    name: "SC",
+    age: 5,
+    votingStatus: false,
+  },
+  {
+    name: "HO",
+    age: 40,
+    votingStatus: false,
   },
 ];
+let input = 18;
 
+let arr = [];
+for (i = 0; i < persons.length; i++) {
+  if (persons[i].age > input) {
+    persons[i].votingStatus = true;
+    arr.push(persons[i]);
+  }
+}
+
+console.log(arr);
