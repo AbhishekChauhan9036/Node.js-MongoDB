@@ -1,14 +1,14 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "Backend cohort for Californium(Nov,2022 - Mar,2023)",
+  "description": " ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sabiha": "abc sdfsdfsdfgsfsdf a b c d afrgdfg sdfgsgsfg sdgsdgs",
     "mycommand": ""
   },
-  "author": "Sabiha Khan",
+  "author": "Abhishek Chauhan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
