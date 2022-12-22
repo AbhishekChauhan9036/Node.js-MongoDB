@@ -7,10 +7,22 @@ const mongoose = require('mongoose')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//connecting nodejs app with mongoDb
-mongoose.connect("mongodb+srv://karthikramadugu:Karthiksai1@karthikcluster.b2ikjot.mongodb.net/test", {useNewUrlParser: true})
-    .then(() => console.log('mongodb running on 27017'))
-    .catch(err => console.log(err))
+mongoose
+  .connect(
+    "mongodb+srv://Tapaswee2001Samantaray:jecky2001@cluster0.zinufff.mongodb.net/TapasweeDB1-mongoDBDayFirstPractice",
+    {
+      useNewUrlParser: true,
+    },
+    mongoose.set("strictQuery", true)
+  )
+  // mongoose.connect("mongodb+srv://abhishek9036:abhishek9036@abhishek9036.s0p4ddl.mongodb.net/abhishek9036-DB", {
+  //     useNewUrlParser: true
+  // } , mongoose.set("strictQuery" , true))
+  // mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {
+  //     useNewUrlParser: true
+  // })
+  .then(() => console.log("MongoDb is connected"))
+  .catch((err) => console.log(err));
 
 app.use('/', route);
 
