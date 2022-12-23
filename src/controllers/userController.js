@@ -1,15 +1,20 @@
-const UserModel= require("../models/userModel")
+const UserModel = require("../models/userModel")
+const basicCode = async function(req, res) {
 
-const createUser= async function (req, res) {
-    let data= req.body
-    let savedData= await UserModel.create(data)
-    res.send({msg: savedData})
+    res.send({ msg: "This is coming from controller (handler)" })
 }
 
-const getUsersData= async function (req, res) {
-    let allUsers= await UserModel.find()
-    res.send({msg: allUsers})
+const createUser = async function(req, res) {
+    let data = req.body
+    let savedData = await UserModel.create(data)
+    res.send({ msg: savedData })
 }
 
-module.exports.createUser= createUser
-module.exports.getUsersData= getUsersData
+const getUsersData = async function(req, res) {
+    let allUsers = await UserModel.find()
+    res.send({ msg: allUsers })
+}
+
+module.exports.createUser = createUser
+module.exports.getUsersData = getUsersData
+module.exports.basicCode = basicCode
