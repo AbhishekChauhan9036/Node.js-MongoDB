@@ -2,13 +2,14 @@ const newAuthorModel = require("../models/authorModel");
 const newPublisherModel = require("../models/publisherModel");
 const newBookModel = require("../models/bookModel");
 
+  //  Solution 1...........................................................................................
 const createNewAuthor = async function (req, res) {
   let data = req.body;
   let newAuthor = await newAuthorModel.create(data);
   res.send({ msg: newAuthor });
 };
 
-
+  //  Solution 2...........................................................................................
 const createNewPublisher = async function (req, res) {
   let data = req.body;
   let newPublisher = await newPublisherModel.create(data);
@@ -16,12 +17,13 @@ const createNewPublisher = async function (req, res) {
 };
 
 
+  //  Solution 3...........................................................................................
 const createNewBook = async function (req, res) {
   let data = req.body;
   //  Solution 3(a)...........................................................................................
   let x = Object.keys(req.body);
   if (!x.includes("author")) {
-    res.send({ error: "please enter Author ID" });
+    res.send({ error: "this detail is required" });
   } else {
     //  Solution 3(b)...........................................................................................
     let y = await newAuthorModel.find({ _id: req.body["author"] });
@@ -33,7 +35,7 @@ const createNewBook = async function (req, res) {
           let finalBook = await newBookModel.create(data);
           res.send({ msg: finalBook });
         } else {
-          res.send({ error: "publisher is not present" });
+          res.send({ error: "publisher is required" });
         }
       } else {
         res.send({ error: "please enter pubisher Field"});
@@ -44,22 +46,20 @@ const createNewBook = async function (req, res) {
   }
 };
 
-
+// Solution 4................................................................ 
 const getAllbooks = async function (req, res) {
   let authBooks = await newBookModel.find().populate("author").populate("publisher");
   res.send({ msg: authBooks });
 };
 
 
+// Solution 5................................................................
 const books = async function (req, res) {
   let authbook = await newBookModel.find().populate("author").populate("publisher");
   let y = [];
   let e = [];
   authbook.forEach((x) => {
-    if (
-      x["publisher"]["name"] == "Penguin" ||
-      x["publisher"]["name"] == "HarperCollins"
-    ) {
+    if ( x["publisher"]["name"] == "Penguin" || x["publisher"]["name"] == "HarperCollins") {
       y.push(x["name"]);
     }
   });
