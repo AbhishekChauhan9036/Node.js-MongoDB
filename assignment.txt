@@ -1,12 +1,13 @@
-Video Link:- https://drive.google.com/file/d/1MbXoVDEqwbugi-9LQNGncluGn0mcg7RW/view?usp=sharing
+Video Link:- https://drive.google.com/file/d/1dLUAE9JBRFvmeJCpKbmRj9Fshw008s6Y/view?usp=sharing
 
 Code Link:- https://github.com/AbhishekChauhan9036/Node.js-MongoDB/tree/assignment/MongoDB-session3
 
 
 ASSIGNMENT:-
 Write a middleware that logs (console.log) some data everytime any API is hit
-Data to be logged:-the current timestamp(as date time) , the IP of the user and the route being requested).
-For this first figure out how to get the route location being request, how to get current timestamp and how to get the IP.
+Data to be logged:-the current timestamp(as date time) , the IP of the user and the route being 
+requested).For this first figure out how to get the route location being request, how to get current
+timestamp and how to get the IP.
 NOTE: ip of local computer will come as ::1 so dont get disturbed by seeing this)
 
 e.g: you should be logging something like this on each line:
