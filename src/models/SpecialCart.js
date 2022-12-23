@@ -2,9 +2,6 @@ const customModel=require("./Customm")
 const mongoose=require('mongoose')
 const Customm = require("./Customm");
 
-
-
-
 let ObjectId=mongoose.Schema.Types.ObjectId
 
 const catSchema=new mongoose.Schema({
