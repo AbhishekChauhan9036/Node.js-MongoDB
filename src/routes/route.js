@@ -1,3 +1,8 @@
+// Video Link:- https://drive.google.com/file/d/1fNfZ1PCB8_MNRugCT683LJf_-HFVaeLY/view?usp=sharing
+
+
+
+
 const express = require("express");
 const router = express.Router();
 
@@ -38,6 +43,7 @@ router.post("/query-params", function (req, res) {
       arr.push(persons[i]);
     }
   }
+  console.log(arr);
   return res.send(arr);
 });
 
