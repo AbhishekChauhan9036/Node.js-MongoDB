@@ -1,26 +1,27 @@
 const newAuthorModel = require("../models/authorModel");
 const newPublisherModel = require("../models/publisherModel");
 const newBookModel = require("../models/bookModel");
+
 const createNewAuthor = async function (req, res) {
   let data = req.body;
   let newAuthor = await newAuthorModel.create(data);
   res.send({ msg: newAuthor });
 };
-module.exports.createNewAuthor = createNewAuthor;
+
 
 const createNewPublisher = async function (req, res) {
   let data = req.body;
   let newPublisher = await newPublisherModel.create(data);
   res.send({ msg: newPublisher });
 };
-module.exports.createNewPublisher = createNewPublisher;
+
 
 const createNewBook = async function (req, res) {
   let data = req.body;
   //  Solution 3(a)...........................................................................................
   let x = Object.keys(req.body);
   if (!x.includes("author")) {
-    res.send({ error: "author objectId detail is required" });
+    res.send({ error: "please enter Author ID" });
   } else {
     //  Solution 3(b)...........................................................................................
     let y = await newAuthorModel.find({ _id: req.body["author"] });
@@ -32,32 +33,26 @@ const createNewBook = async function (req, res) {
           let finalBook = await newBookModel.create(data);
           res.send({ msg: finalBook });
         } else {
-          res.send({ error: "publisher not present" });
+          res.send({ error: "publisher is not present" });
         }
       } else {
-        res.send({ error: "publisher feild is required" });
+        res.send({ error: "please enter pubisher Field"});
       }
     } else {
-      res.send({ error: "author not present" });
+      res.send({ error: "author is not present" });
     }
   }
 };
-module.exports.createNewBook = createNewBook;
+
 
 const getAllbooks = async function (req, res) {
-  let authBooks = await newBookModel
-    .find()
-    .populate("author")
-    .populate("publisher");
+  let authBooks = await newBookModel.find().populate("author").populate("publisher");
   res.send({ msg: authBooks });
 };
-module.exports.getAllbooks = getAllbooks;
+
 
 const books = async function (req, res) {
-  let authbook = await newBookModel
-    .find()
-    .populate("author")
-    .populate("publisher");
+  let authbook = await newBookModel.find().populate("author").populate("publisher");
   let y = [];
   let e = [];
   authbook.forEach((x) => {
@@ -88,4 +83,10 @@ const books = async function (req, res) {
   let z = await newBookModel.find();
   res.send({ res: z });
 };
+
+
 module.exports.books = books;
+module.exports.getAllbooks = getAllbooks;
+module.exports.createNewBook = createNewBook;
+module.exports.createNewPublisher = createNewPublisher;
+module.exports.createNewAuthor = createNewAuthor;
