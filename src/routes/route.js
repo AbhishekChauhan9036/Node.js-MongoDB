@@ -10,7 +10,7 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post('/products',orderC.products )
+router.post('/products',orderC.products )//
 
 router.post('/users',orderM.usermid,orderC.usere )
 router.post('/orders',orderM.usermid,orderC.ordere)

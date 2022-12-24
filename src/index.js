@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {useNewUrlParser: true})
-    .then(() => console.log('mongodb running on 27017'))
+    .then(() => console.log('mongodb is running'))
     .catch(err => console.log(err))
 app.use(
         function(req,res,next){

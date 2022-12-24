@@ -8,14 +8,16 @@ const products = async function (req, res) {
   let a = await productM.create(data);
   res.send({ msg: a });
 };
-module.exports.products = products;
+
+
 
 const usere = async function (req, res) {
   let data1 = req.body;
   let a1 = await UserM.create(data1);
   res.send({ msg: a1 });
 };
-module.exports.usere = usere;
+
+
 const ordere = async function (req, res) {
   let x = await UserM.findById(req.body["userId"]).select({
     _id: 0,
@@ -53,4 +55,6 @@ const ordere = async function (req, res) {
   }
 };
 
+module.exports.products = products;
+module.exports.usere = usere;
 module.exports.ordere = ordere;
