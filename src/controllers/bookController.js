@@ -8,7 +8,6 @@ const bookCreate=async function(req,res){
 const bookGenerate=async function(req,res){
     let Data= await BookModel.find()
     res.send({msg:Data})
-
 }
 
 module.exports.bookCreate=bookCreate
