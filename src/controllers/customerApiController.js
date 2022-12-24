@@ -29,7 +29,7 @@ const getCustomAPI=async function(req,res){
     let reqCustomers=await cmodel.find({status:{$eq:"ACTIVE"}})
     res.send({msg:reqCustomers})
 }
-module.exports.getCustomAPI=getCustomAPI
+
 const postCustomAPI=async function(req,res){
     let createData=req.body
     let updatedData=await cmodel.create(createData)
@@ -56,3 +56,4 @@ module.exports.preCad=preCad;
 module.exports.postCustomAPI=postCustomAPI;
 module.exports.flagCustomAPI=flagCustomAPI;
 module.exports.getCardAPI=getCardAPI;
+module.exports.getCustomAPI=getCustomAPI;
