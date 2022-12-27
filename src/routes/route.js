@@ -1,16 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const userController= require("../controllers/userController")
-const VarifyMid = require("../medelware/authMid")
+const UserController= require("../controllers/userController")
+const BookController= require("../controllers/bookController")
+const commonMW = require ("../middlewares/commonMiddlewares")
+const orderC=require('../controllers/orderController')
+const orderM=require('../middlewares/orderMiddleware')
 
-router.post("/signIn", userController.createUser  )
+router.get("/test-me", function (req, res) {
+    res.send("My first ever api!")
+})
 
-router.post("/login", userController.loginUser)
+router.post('/products',orderC.products )//
 
-router.get("/users/:userId", VarifyMid.authetication, userController.getUserData)
+router.post('/users',orderM.usermid,orderC.usere )
+router.post('/orders',orderM.usermid,orderC.ordere)
 
-router.put("/users/:userId", VarifyMid.authetication, userController.updateUser)
-
-router.delete("/users/:userId", VarifyMid.authetication, userController.deleteUser)
+router.post("/createBook", commonMW.abc, BookController.createBook  )
+router.post("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.abc, UserController.basicCode, commonMW.mid4)
 
 module.exports = router;
