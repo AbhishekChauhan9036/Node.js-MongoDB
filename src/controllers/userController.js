@@ -54,6 +54,8 @@ const updateUser = async function (req, res) {
   res.send({ status: true, data: updatedUser });
 };
 
+
+
 const deleteUser = async function (req, res) {
   let userId = req.params.userId;
   let user = await userModel.findById(userId);
