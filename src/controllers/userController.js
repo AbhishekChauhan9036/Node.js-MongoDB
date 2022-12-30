@@ -8,7 +8,7 @@ const createUser = async function(req, res) {
             let Data = req.body
             if (Data) {
                 let createuser = await userModel.create(Data)
-                return res.status(201).send({ status: true, msz: createuser })
+                return res.status(201).send({ status: true, msg: createuser })
             } else
                 res.status(400).send({ msg: "Bad Request" })
         } catch (error) {
